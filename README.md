@@ -1,23 +1,8 @@
-# MTDS（Design and Service System for Marketing Terminal）PC Console - 欧派营销服务平台 PC 端后台系统。
+# console-frontend-Template
 
 ## 项目背景
-> 为实现信息化的战略目标，提升客户成交速度和成交率，通过信息化赋能商场，确保商场以及欧派对终端销售、设计、服务流程的有效监控，建立了MTDS系统，配合K3、物流系统，实现从经销商到总部到工厂的全流程信息化贯通。目前MTDS中搭建了从销售、设计到下单流程，实现了销售端的系统化建设，而送货、安装、回访等与客户交互密切的服务环节未进行系统管理，仍通过excel、QQ、微信、电话等方式进行交流及统计，造成以下弊端：
-> 商场客户服务运营质量较低：终端商场库存手工管理，出错率高；面对大量的产品信息与订单信息管理难度大；安装服务经验无法得到有效传承。
-> 商场客户服务运营成本高：安装调度采用手工excel记录，及时性、全面性差，缺乏有效的送货安装计划与调度。
-> 商场客户服务沟通成本高：缺少有效服务的跟踪与监控，送货安装业务与订单无法协同。
 
 ## 项目目标
-> 以客户为中心，围绕终端商场的运营效率，资源整合，服务体验，搭建基于MTDS平台的送货安装系统，帮助商场实现业务协同与管控，提高服务质量，提升客户口碑，增加客户满意度，与经销商共同进步，实现共赢。
-
-### 主要目标如下：
-
-  - 提升终端门店服务运营效率与质量：通过销售、设计、安装、售后服务全体系信息化管理，提高信息准确率，减少错误信息，提升售后服务质量。
-
-  - 完善商场送货安装业务流程，进行齐套管理，提供调度建议，降低调度复杂度，做到计划性、全面性、易用性，更快更好地实现推广目标。
-
-  - 实现数据系统化，形成送货安装服务数据库，减少企业对员工经验、员工账本的依赖，降低运营管理风险；进行大数据分析及利用，数据驱动创新，提高企业核心竞争力。
-
-  - 提升客户服务体验：通过系统形成销售、设计、生产、安装、验收PDCA闭环管理，加强服务跟踪与监控，快速了解现场情况，及时处理客户异常情况；知识沉淀与经验积累，提高业务人员服务水平，做到快速反应，主动服务。
 
 ## 项目需求
 > 项目需求请查看 [MTDS项目送货安装文档](https://www.tapd.cn/23181131/documents/file_list/1123181131001000812)
@@ -138,128 +123,6 @@ npm run lint-fix
 > 功能开发、页面开发或组件开发时请务必遵循本项目开发流程及开发约定。否则可能导致编译或测试不通过等情况。
 > 如认为有不妥之处，可以讨论并修正。
 > 以下将详细解释本项目的开发约定规范及开发流程。
-
-### 路由相关（2018-12-29）
-
-目前MTDS2路由为平面结构，面包屑功能不能正确的展示关联关系，所以需要改为嵌套路由
-
-#### 路由基本结构：
-```
-{  // 一级路由
-  name: 'route-manage', // 名称
-  path: '/route-manage', // 路径
-  meta: {
-    title: t('路由管理'), // 浏览器显示标题
-    name: '路由管理', // 路由对象名称
-    menu: '/route-manage',
-    href: '/route-manage', // 权限匹配字段
-    icon: 'icon-songhuoanzhuang' // 菜单ICON 一级菜单专属
-  },
-  component: () => import(/* webpackChunkName: 'route-manage' */ '@/views/route/RouteManage'), // 引入页面/组件
-  children: [  // 子路由
-    {  // 二级路由
-      name: 'route-detail',
-      path: '/route-manage/route-detail',
-      meta: {
-        title: t('路由详情'),
-        name: '路由详情',
-        menu: '/route-manage/route-detail',
-        href: '/route-manage/route-detail',
-      },
-      component: () => import(/* webpackChunkName: 'route-detail' */ '@/views/route/RouteDateil'),
-      children: [
-        {  // 三级路由
-          name: 'route-detail-add',
-          path: '/route-manage/route-detail-add',
-          meta: {
-            title: t('添加路由详情'),
-            name: '添加路由详情',
-            menu: '/route-manage/route-detail-add',
-            href: '/route-manage/route-detail-add',
-          },
-          component: () => import(/* webpackChunkName: 'route-detail-add' */ '@/views/route/RouteDateilAdd'),
-          children: [],
-          `hidden: true` // 是否隐藏二级路由内容
-        }
-      ],
-    }
-  ],
-}
-```
-
-#### 三级路由
-如存在三级路由，需在二级页面/组件改造如下：
-例: /src/views/delivery-installation/FullInfoTable/index.vue
-```
-<template>
-  <div>
-     // 二级页面/组件内容
-    <div class="my-full-info-table" v-show="!$route.meta.hidden">
-      ...
-    </div>
-    // 三级页面/组件路由入口
-    <router-view></router-view>
-  </div>
-</template>
-```
-
-#### 公共路由
-如存在公共路由
-设置相同`href` 处理权限
-设置不同`name、path` 跳转路由
-
-例: /src/router/routes/delivery-installation/index.js // 订单详情
-
-```
-{
-  name: 'order-dispatch-list',
-  path: '/delivery-installation/order-dispatch-list',
-  meta: {
-    title: t('订单调度列表'),
-    name: '订单调度列表',
-    menu: '/delivery-installation/order-dispatch-list',
-    href: '/delivery-installation/order-dispatch-list'
-  },
-  children: [
-    {
-      name: 'order-dispatch-details',
-      path: '/delivery-installation/order-dispatch-list/order-dispatch-details',
-      meta: {
-        title: t('订单详情'),
-        name: '订单详情',
-        menu: '/delivery-installation/order-dispatch-list/order-details',
-        href: '/delivery-installation/order-dispatch-list/order-details',
-        hidden: true
-      },
-    }
-  ]
-},
-{
-  name: 'acceptance-list',
-  path: '/delivery-installation/acceptance-list',
-  meta: {
-    title: t('验收列表'),
-    name: '验收列表',
-    menu: '/delivery-installation/acceptance-list',
-    href: '/delivery-installation/acceptance-list'
-  },
-  component: () => import(/* webpackChunkName: 'acceptance-list' */ '@/views/delivery-installation/Acceptance'),
-  children: [
-    {
-      name: 'acceptance-details',
-      path: '/delivery-installation/order-dispatch-list/acceptance-details',
-      meta: {
-        title: t('订单详情'),
-        name: '订单详情',
-        menu: '/delivery-installation/order-dispatch-list/order-details',
-        href: '/delivery-installation/order-dispatch-list/order-details',
-        hidden: true
-      },
-      component: () => import(/* webpackChunkName: 'order-details' */ '@/views/delivery-installation/OrderDispatchList/components/OrderDetails')
-    }
-  ]
-}
-```
 
 ### 一、命名规范
 
