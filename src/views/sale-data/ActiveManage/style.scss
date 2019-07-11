@@ -1,0 +1,13 @@
+.header {
+  width: 100%;
+}
+.header-toolbar{
+  display: flex;
+  justify-content: space-between;
+}
+.search-form{
+  display: flex;
+  .searchInput{
+    margin-right: 15px;
+  }
+}

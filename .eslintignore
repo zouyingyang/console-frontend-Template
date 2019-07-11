@@ -1,0 +1,10 @@
+/dist
+/node_modules
+/.idea
+/docs
+
+
+/src/libs/qrcode/
+/src/libs/aliyun-oss-sdk/
+/src/libs/md5/md5.js
+/src/libs/md5/element-ui/

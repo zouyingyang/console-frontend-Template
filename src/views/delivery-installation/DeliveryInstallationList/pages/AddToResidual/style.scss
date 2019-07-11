@@ -1,0 +1,33 @@
+.form-title {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 18px;
+    h3 {
+        font-size: 16px;
+        margin: 6px 0;
+    }
+    &__right {
+        line-height: 1;
+    }
+}
+.oneThird {
+    display: inline-block;
+    width: 33.33%;
+}
+.aHalf {
+    display: inline-block;
+    width: 50%;
+    .el-select {
+        width: 100%;
+    }
+    &.text-right {
+        text-align: right;
+    }
+}
+.info-list {
+    &+.info-list {
+        border-top: 1px dashed #ccc;
+        padding-top: 15px;
+    }
+}

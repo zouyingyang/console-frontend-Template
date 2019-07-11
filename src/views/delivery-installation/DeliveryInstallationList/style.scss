@@ -1,0 +1,61 @@
+@charset "UTF-8";
+.my-delivery-installation-print{
+
+  .topRight{
+    .el-input{
+      width: 180px;
+      margin-right: 6px;
+    }
+  }
+  .searchBox {
+    text-align: right;
+    width: 100%;
+  }
+  .checkTag{
+    color:#606266;
+    background-color: #d9d9d9;
+  }
+
+  .el-dropdown {
+    cursor: pointer;
+  }
+
+  .delivery-installation-dialog {
+    h3 {
+      text-align: center;
+      font-size: 20px;
+    }
+    p {
+      text-align: center;
+      font-size: 16px;
+      .red {
+        color: red;
+      }
+    }
+    .el-input {
+      width: 180px;
+    }
+    .el-form-item__label {
+      width: 34%;
+    }
+
+  }
+
+  .mulCheck{
+    .el-tag--mini{
+      margin-right: 8px;
+    }
+  }
+
+  .margin-right-10{
+    margin-right: 10px;
+  }
+  .info-color{
+    color: #606266;
+    font-size: 14px;
+  }
+  .el-form--inline .el-form-item{
+    margin-right: 0;
+  }
+}
+

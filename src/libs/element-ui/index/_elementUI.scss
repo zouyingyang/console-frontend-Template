@@ -1,0 +1,24 @@
+.el-loading-mask {
+    background-color: rgba(0, 0, 0, .1) !important;
+}
+
+.el-pagination{
+    text-align: right;
+    margin:  10px 0;
+}
+.el-table .cell{
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.el-table__body tr.highlight > td{
+    background-color: #fef2e5;
+}
+
+.el-button + .el-button{
+    margin-left: 5px;
+}
+
+.el-tag + .el-tag{
+    margin-left: 5px
+}

@@ -1,0 +1,25 @@
+@import "~@nn-yy/css-flex/flex";
+p {
+  margin: 0;
+}
+.l-right {
+  float: right;
+}
+.link-text {
+  text-decoration: none;
+  color: #53b3f8;
+}
+.f-margin {
+  margin: 0 10px;
+}
+.tags-wrap {
+  .el-tag {
+    margin-bottom: 5px;
+    & + .el-tag {
+      margin-left: 10px;
+    }
+  }
+}
+// .el-tag + .el-tag {
+//   margin-left: 10px;
+// }

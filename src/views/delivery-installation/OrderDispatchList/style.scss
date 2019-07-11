@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+.order-dispatch-list{
+  .info-color{
+    color: #606266;
+    font-size: 14px;
+  }
+  .searchBox {
+    text-align: right;
+  }
+  .el-dropdown {
+    cursor: pointer;
+  }
+  .margin-right-10{
+    margin-right: 10px;
+  }
+  .el-checkbox {
+    margin-left: 8px;
+  }
+  .el-radio {
+    margin-left: 8px;
+  }
+}
+.searchParams{
+  .el-date-editor--datetimerange{
+    width: 294px!important;
+  }
+  .el-range-editor{
+    padding: 3px 0px 3px 3px;
+  }
+}
+.SearchStore{
+  .el-dialog__body{
+    padding: 0px 25px 30px!important;
+  }
+}
+.checkMaketTag{
+  .el-tag{
+    margin-right: 5px;
+  }
+}
+

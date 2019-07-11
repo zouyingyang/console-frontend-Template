@@ -1,0 +1,34 @@
+.returnedWindows{
+  .el-dialog__body{
+    padding: 0 25px 25px 30px;
+  }
+  .el-form-item__label{
+    text-align: center;
+    width: 88px;
+  }
+  .el-textarea{
+    width: 85%;
+  }
+  .el-input__inner{
+    height: 2.5em;
+  }
+  .red{
+    color:red;
+  }
+  p{
+    font-size: 16px;
+    line-height: 46px;
+    text-align: center;
+  }
+}
+.return-warehouse-list{
+  .el-form-item__label{
+    width: 90px;
+    padding: 0 1px;
+    text-align: center;
+  }
+  .checkTag{
+    color:#606266;
+    background-color: #d9d9d9;
+  }
+}

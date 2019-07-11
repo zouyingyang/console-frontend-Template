@@ -1,0 +1,109 @@
+@import "~@nn-yy/css-flex/flex";
+.el-form-item__content {
+  .ql-toolbar {
+    line-height: 1;
+  }
+  .ql-container {
+    min-height: 400px;
+    padding-top: 80px;
+  }
+}
+.detail-form {
+  position: relative;
+  &__title {
+    position: absolute;
+    top: 100px;
+    left: 18px;
+    z-index: 1;
+    width: 100%;
+    .el-input {
+      width: 80%;
+      font-size: 16px;
+      display: inline-block;
+      input {
+        background-color: transparent;
+        border: none;
+        border-radius: 0;
+        border-bottom: 1px solid #ccc;
+      }
+    }
+    span {
+      color: #ccc;
+    }
+  }
+}
+.fix-upload {
+  @include flex();
+
+  /deep/ {
+    .el-upload {
+      display: block;
+      border: 1px dashed #d9d9d9;
+      border-radius: 6px;
+      position: relative;
+      overflow: hidden;
+      width: 320px;
+      max-height: 200px;
+      cursor: pointer;
+
+      &:hover {
+        border-color: #545c64;
+      }
+    }
+    .cover-img {
+      p {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background: rgba(130, 128, 128, 0.58);
+        text-align: center;
+        margin: 0;
+        width: 100%;
+        line-height: 1;
+        padding: 5px 0;
+        color: #fff;
+      }
+      img {
+        display: block;
+        height: auto;
+        width: 100%;
+      }
+    }
+    .el-icon-plus {
+      font-size: 28px;
+      color: #8c939d;
+      width: 178px;
+      height: 178px;
+      line-height: 178px;
+      text-align: center;
+    }
+  }
+}
+.fix-btn {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: rgba(122, 122, 122, 0.58);
+  text-align: center;
+  width: 100%;
+  padding: 10px;
+  display: block;
+  margin: 0;
+  z-index: 6667;
+  button {
+    width: 120px;
+  }
+}
+.f-margin {
+  margin: 0 10px;
+  text-align: center;
+}
+// .btn-wrap {
+//   width: 260px;
+//   height: 260px;
+//   margin: 0 auto;
+// }
+// .btn-wrap textarea{
+//   width: 260px;
+//   height: 260px;
+// }

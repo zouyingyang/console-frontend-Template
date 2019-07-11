@@ -1,0 +1,84 @@
+.AttendantManagement{
+  .header{
+    width: 100%;
+  }
+  .search-form{
+    display: flex;
+    .searchInput{
+      margin-right: 15px;
+    }
+  }
+  .newly-dialog{
+    min-width: 360px;
+    .el-dialog__body{
+      padding-bottom:0px;
+    }
+    .newly-box{
+      width: 100%;
+      .el-dropdown{
+        width: 108.5%;
+      }
+      .sex-input{
+        width: 108.5%;
+      }
+      .el-form-item{
+        width: 100%;
+      }
+      .el-form-item__content{
+        max-width: 70%;
+      }
+      .el-form-item__label{
+        width: 26%;
+      }
+    }
+  }
+  .table-content{
+    .el-input__inner {
+      text-align: center;
+      max-width:60%;
+    }
+    .personal-dropdown{
+      .el-input__inner {
+        max-width:70%;
+      }
+    }
+  }
+}
+.show-upload{
+  .el-dialog__body{
+    .el-upload-dragger{
+      margin: 0 auto;
+    }
+  }
+  .el-upload-dragger{
+    border:0px;
+  }
+}
+.personal-menu{
+  min-width: 200px;
+  max-height: calc(100vh - 300px);
+  overflow-y: auto;
+  .el-tree-node__content:hover {
+    background-color: #ddd;
+  }
+  .el-tree-node:focus>.el-tree-node__content{
+    background-color: #ccc;
+  }
+  .iconfont{
+    color: #f08519;
+    margin-right: 0px;
+  }
+  .el-tree-node__label {
+    padding: 5px;
+  }
+}
+.must-check{
+  .el-form-item__label:before {
+    content: '*';
+    color: #f56c6c;
+    margin-right: 4px;
+  }
+}
+.red{
+  color: #f00;
+}

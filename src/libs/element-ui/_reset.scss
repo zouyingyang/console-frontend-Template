@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+// reset global style
+html {
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont,
+               "Helvetica Neue", "Segoe UI", "Roboto",
+               "PingFang SC", "Hiragino Sans GB",
+               "Microsoft YaHei Light", "Microsoft YaHei",
+               "Noto Sans CJK",
+               "WenQuanYi Micro Hei",
+               sans-serif;
+}
+
+body {
+  margin: 0;
+  height: inherit;
+  background-color: #f0f2f5;
+}
+
+::selection {
+  background-color: #909399;
+  color: white;
+}
+
+// reset el-card component
+.el-card {
+  margin-bottom: 20px;
+}
+// reset el-date-picker component
+.el-date-range-picker {
+  @media screen and (max-width: 769px) {
+    width: 320px;
+
+    .el-picker-panel__body {
+      flex-direction: column;
+      min-width: unset;
+
+      .el-picker-panel__content {
+        width: 320px;
+      }
+    }
+  }
+}
+
+.el-pagination {
+  text-align: right;
+  margin-top: 10px;
+}

@@ -1,0 +1,68 @@
+@import "~@nn-yy/css-flex/flex";
+.img-wrap {
+  max-width: 100%;
+  max-height: 100px;
+  text-align: center;
+  position: relative;
+  width: 150px;
+  height: 100px;
+  overflow: hidden;
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%,-50%,0);
+    max-width: 100%;
+  }
+}
+p {
+  margin: 0;
+}
+.link-text {
+  text-decoration: none;
+  color: #53b3f8;
+}
+.f-margin {
+  margin: 0 10px;
+}
+.goUrl-text {
+  text-decoration: none;
+  color: #ffb082;
+}
+.bannerForm {
+  .fix-upload {
+    @include flex();
+
+    /deep/ {
+      .el-upload {
+        display: block;
+        border: 1px dashed #d9d9d9;
+        border-radius: 6px;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+
+        &:hover {
+          border-color: #545c64;
+        }
+      }
+      img {
+        display: block;
+        width: 150px;
+        height: 100px;
+      }
+      .el-icon-plus {
+        font-size: 28px;
+        color: #8c939d;
+        width: 150px;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+      }
+    }
+  }
+}
+.help-block {
+  font-size: 12px;
+  margin: 0;
+}

@@ -1,0 +1,39 @@
+@charset "UTF-8";
+.my-delivery-installation-acceptance{
+
+  .toolbar{
+    display: flex;
+    align-items: center;
+  }
+  .search-form {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    .ele-input {
+      width: 180px;
+      margin: 0 10px;
+    }
+  }
+  .seniorSearch{
+    margin-top: 15px;
+  }
+
+  .upload-item {
+    max-height: 150px;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
+  }
+  .fix-upload{
+    display: inline-block;
+  }
+  .checkTag{
+    color:#606266;
+    background-color: #d9d9d9;
+  }
+  .acceptance-list{
+    .el-input{
+      width: 120px;
+    }
+  }
+}

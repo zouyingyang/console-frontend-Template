@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+@import '~@nn-yy/css-flex/flex';
+
+.logo {
+  @include flex( start, middle );
+  width: unset;
+  padding: 17px 20px;
+
+  &--large {
+    @include flex( center, middle );
+    width: unset;
+    margin-bottom: 48px;
+  }
+
+  &.is-dark {
+    background-color: #fc9153;
+    color: white;
+  }
+
+  &__image {
+    height: 24px;
+
+    &--large {
+      height: 32px;
+    }
+  }
+
+  &__text {
+    margin: 0 20px;
+    font-size: 18px;
+    line-height: 26px;
+    word-break: keep-all;
+    white-space:nowrap;
+
+    &--large {
+      margin-left: 10px;
+      color: #606266;
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 36px;
+    }
+  }
+}
