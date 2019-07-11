@@ -160,17 +160,6 @@ export default class Upload extends Vue {
     //          apiGet.system.authorization({code:'all'}).then(res => {
     //              console.log("获取oss临时账户",res)
     this.loading = false
-    // 临时账号有问题  这里先写死
-    let res = {
-      'status': '200',
-      'Region': 'oss-cn-shenzhen',
-      // 'Bucket': 'opyx-mtds-test',
-      'Bucket': process.env.NODE_ENV.includes('production') ? 'opyx-mtds-pro' : 'opyx-mtds-test',
-      'AccessKeyId': 'LTAIFBiMxe7OkNEi',
-      'AccessKeySecret': 'cFcQhtxx3XHdOGGXdY4Dl4crGrkQqv',
-      'SecurityToken': 'CAISigJ1q6Ft5B2yfSjIqvTnHo7hlOgZ/KO+UB+EnkcgXPl7upDN1Dz2IHBIfnJsCOAbt/43lWBZ6/0TlqJ6QJRCWErYKJMot8zgC8Ew8MmT1fau5Jko1beXewHKeSOZsebWZ+LmNqS/Ht6md1HDkAJq3LL+bk/Mdle5MJqP+/EFA9MMRVv6F3kkYu1bPQx/ssQXGGLMPPK2SH7Qj3HXEVBjt3gb6wZ24r/txdaHuFiMzg+46JdM+9yvecf1NJQ1Y84hDofu5oEsKPqdihw3wgNR6aJ7gJZD/Tr6pdyHCzFTmU7Wb7CProw/cVYjPvlqSvMf/eKEkuVpqqnWi4jsjgpAJv0QTDRQyV5lK0ATchqAAYDQwQJpVxaItVdopf1CPuI3imudjGRKGi+gW9p3hZMEpXERYyAW0Y0QLRpMGXV4sFWpJK+I2AKCRZs8Kbc5WAeaPifUjMdDclEspRUEyxuKkuwccl2M5fgBCtPwwP5BwrqygCzfVUwHdShErmBC0SnhYyNBlSP3AolNehkiNIdJ',
-      'Expiration': '2017-11-15T10:12:36Z'
-    }
     if (res.status) {
       this.authorizationInfo.region = res.Region
       this.authorizationInfo.bucket = res.Bucket
