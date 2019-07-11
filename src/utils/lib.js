@@ -26,9 +26,8 @@ export const SaveAsFile = (imgURL, imgName) => {
   let client = new OSS({
     'region': 'oss-cn-shenzhen',
     'bucket': process.env.NODE_ENV.includes('pro') ? 'opyx-mtds-pro' : 'opyx-mtds-test',
-    'accessKeyId': 'LTAIFBiMxe7OkNEi',
-    'accessKeySecret': 'cFcQhtxx3XHdOGGXdY4Dl4crGrkQqv'
-    // 'securityToken': 'CAISigJ1q6Ft5B2yfSjIqvTnHo7hlOgZ/KO+UB+EnkcgXPl7upDN1Dz2IHBIfnJsCOAbt/43lWBZ6/0TlqJ6QJRCWErYKJMot8zgC8Ew8MmT1fau5Jko1beXewHKeSOZsebWZ+LmNqS/Ht6md1HDkAJq3LL+bk/Mdle5MJqP+/EFA9MMRVv6F3kkYu1bPQx/ssQXGGLMPPK2SH7Qj3HXEVBjt3gb6wZ24r/txdaHuFiMzg+46JdM+9yvecf1NJQ1Y84hDofu5oEsKPqdihw3wgNR6aJ7gJZD/Tr6pdyHCzFTmU7Wb7CProw/cVYjPvlqSvMf/eKEkuVpqqnWi4jsjgpAJv0QTDRQyV5lK0ATchqAAYDQwQJpVxaItVdopf1CPuI3imudjGRKGi+gW9p3hZMEpXERYyAW0Y0QLRpMGXV4sFWpJK+I2AKCRZs8Kbc5WAeaPifUjMdDclEspRUEyxuKkuwccl2M5fgBCtPwwP5BwrqygCzfVUwHdShErmBC0SnhYyNBlSP3AolNehkiNIdJ',
+    'accessKeyId': '',
+    'accessKeySecret': ''
   })
   let result = client.signatureUrl(imgURL, {
     expires: 3600,
