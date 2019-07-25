@@ -13,13 +13,12 @@
         :collapse="isCollapse">
       </SideBar>
     </el-aside>
-
     <el-container class="el_container_main">
       <el-header v-show="!isOuterChain" class="fix-header">
         <NavBar :collapse="isCollapse" @onCollapse="handleCollapse">
           <Breadcrumb slot="breadcrumb"></Breadcrumb>
           <el-dropdown class="fix-dropdown" slot="main">
-            <UserCard :userName="userName ? userName : '游客'" :avatar="avatar"/>
+            <UserCard :userName="userInfo.userName ? userInfo.userName : '游客'" :avatar="avatar"></UserCard>
             <el-dropdown-menu slot="dropdown">
               <el-dropdown-item @click.native="handleLogout" divided>退出登录</el-dropdown-item>
             </el-dropdown-menu>
@@ -27,7 +26,7 @@
         </NavBar>
       </el-header>
       <!-- 路由导航 -->
-      <RouteHistoricalRecord />
+      <RouteHistoricalRecord></RouteHistoricalRecord>
       <el-main class="fix-main">
         <transition name="fade-transform" mode="out-in">
           <router-view class="router-view"/>
@@ -70,7 +69,6 @@ import RouteHistoricalRecord from './components/RouteHistoricalRecord'
 import { layoutMixin } from '@/utils/mixin'
 
 const moduleUser = namespace('user')
-const moduleMessages = namespace('messages')
 
   @Component({
     components: {
@@ -78,27 +76,21 @@ const moduleMessages = namespace('messages')
     },
     mixins: [layoutMixin]
   })
-export default class App extends Vue {
+class App extends Vue {
     logo = require('@/assets/images/logo.png')
-    fromPath = ''
     currentActive = ''
     isOuterChain = false // 是否是外链接
     isCollapse = false
     preSideBarStatus = ''
     fixedAside = false
     isFixedAsideShow = false
-    currentRouteName = ''
 
-    @moduleUser.Getter userName
+    @moduleUser.Getter userInfo
     @moduleUser.Getter avatar
     @moduleUser.Getter menusTree
 
-    @moduleMessages.State suggestions
-    @moduleMessages.State messages
-
     @moduleUser.Action logout
     @moduleUser.Action setUserLogout
-    @moduleMessages.Action getMessage
 
     handleCollapse () {
       if (this.preSideBarStatus === 'xs') {
@@ -141,6 +133,7 @@ export default class App extends Vue {
       }
     }
   }
+export default App
 </script>
 
 <style lang="scss" scoped>
@@ -180,9 +173,6 @@ export default class App extends Vue {
       }
     }
   }
-  .router-view{
-    min-height: calc(100vh - 155px);
-  }
 
   .fix-header {
     padding: 0;
@@ -191,7 +181,9 @@ export default class App extends Vue {
   .fix-dropdown {
     margin-left: 25px;
   }
-
+  .router-view{
+    min-height: calc(100vh - 120px);
+  }
   .fix-main {
     position: relative;
     -webkit-overflow-scrolling: touch;
@@ -200,5 +192,4 @@ export default class App extends Vue {
     height: 100%;
     overflow-y: scroll;
   }
-
 </style>

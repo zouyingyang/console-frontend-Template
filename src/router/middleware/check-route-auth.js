@@ -7,7 +7,7 @@
  */
 
 import vue from 'vue'
-import storage from '@/utils/storage'
+import store from '../../store/index'
 import { get } from './utils'
 
 /**
@@ -46,55 +46,26 @@ const getRouteName = (router, target) => {
  * @param next
  */
 export default (to, from, next) => {
+  const noLogin = get(['meta', 'noLogin'], to)
+  if (noLogin) {
+    next()
+    return
+  }
   let target
-  storage.init('session')
-  let menusTree = storage.getItem('menusTree')
+  let menusTree = Array.from(store.state.user.menusTree)
   if (!menusTree) {
-    let intervalGet = setInterval(() => {
-      menusTree = storage.getItem('menusTree')
-      if (Array.isArray(JSON.parse(menusTree))) {
-        clearInterval(intervalGet)
-        let menuRouteArray = getRouteName(JSON.parse(menusTree), 'href')
-        let routerMenuString = get(['meta', 'href'], to) || get(['meta', 'href'], from)
-        let noAuth = get(['meta', 'noAuth'], to)
-        if (!(menuRouteArray.indexOf(routerMenuString) > -1) && !noAuth) {
-          target = { name: '403' }
-        }
-      }
-      next(target)
-    }, 100)
-  } else if (!menusTree.length) {
-    target = { name: '403' }
+    target = { name: from.name }
+    next(target)
   } else {
-    let menuRouteArray = getRouteName(JSON.parse(menusTree), 'href')
-    let routerMenuString = get(['meta', 'href'], to) || get(['meta', 'href'], from)
-    let noAuth = get(['meta', 'noAuth'], to)
+    if (!menusTree.length) {
+      next({ name: '403' })
+    }
+    const menuRouteArray = getRouteName(menusTree, 'href')
+    const routerMenuString = get(['meta', 'href'], to) || get(['meta', 'href'], from)
+    const noAuth = get(['meta', 'noAuth'], to)
     if (!(menuRouteArray.indexOf(routerMenuString) > -1) && !noAuth) {
       target = { name: '403' }
     }
+    next(target)
   }
-  next(target)
 }
-
-// if (!menusTree) {
-//   target = { name: from.name }
-//   next(target)
-// } else {
-// if (!menusTree || !menusTree.length) {
-//   target = { name: '403' }
-// } else {
-//   const menuRouteArray = getRouteName(JSON.parse(menusTree), 'href')
-//   // console.log('menuRouteArray:', menuRouteArray)
-//   const routerMenuString = get(['meta', 'href'], to) || get(['meta', 'href'], from)
-//   const noAuth = get(['meta', 'noAuth'], to)
-//   // console.log('routerMenuString:', routerMenuString)
-//   // console.log('!menuRouteArray.indexOf(routerMenuString) > -1:', !(menuRouteArray.indexOf(routerMenuString) > -1))
-//   // console.log('!noAuth:', !noAuth)
-//   // console.log('routerMenuString>>', routerMenuString, 'menuRouteArray>>', menuRouteArray, 'noAuth>>', noAuth)
-//   if (!(menuRouteArray.indexOf(routerMenuString) > -1) && !noAuth) {
-//     target = { name: '403' }
-//   }
-// }
-// next(target)
-// }
-// }

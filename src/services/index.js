@@ -33,7 +33,7 @@ export const asyncRequest = async (api, data) => {
   try {
     return await ajax(api, data)
   } catch (error) {
-    // console.log(error)
+    console.log(error)
     // return Promise.reject(error)
   }
 }

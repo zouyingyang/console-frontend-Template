@@ -14,11 +14,12 @@ import Vue from 'vue'
 import Component from 'vue-class-component'
 
 @Component
-export default class ServerError extends Vue {
+class ServerError extends Vue {
   onclick () {
     this.$router.push('/')
   }
 }
+export default ServerError
 </script>
 
 <style lang="scss" scoped>

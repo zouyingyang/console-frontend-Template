@@ -13,8 +13,9 @@ import Component from 'vue-class-component'
 import { Prop } from 'vue-property-decorator'
 
 @Component
-export default class MessageBoxItem extends Vue {
+class MessageBoxItem extends Vue {
   @Prop({ type: Array })
   content
 }
+export default MessageBoxItem
 </script>

@@ -1,17 +1,17 @@
 <template>
   <div class="card">
-    <el-card v-if="$slots.head" class="card__head" shadow="never">
-      <template>
+    <el-card class="card__head" shadow="never">
+      <template v-if="$slots.head">
         <slot name="head"></slot>
       </template>
     </el-card>
-    <el-card v-if="$slots.content" shadow="never" class="card__content">
-      <template>
+    <el-card shadow="never" class="card__content">
+      <template v-if="$slots.content">
         <slot name="content"></slot>
       </template>
     </el-card>
-    <el-card v-if="$slots.foot" shadow="never" class="card__foot">
-      <template>
+    <el-card shadow="never" class="card__foot">
+      <template v-if="$slots.foot">
         <slot name="foot"></slot>
       </template>
     </el-card>
@@ -24,9 +24,10 @@ import Component from 'vue-class-component'
 import { Prop } from 'vue-property-decorator'
 
 @Component
-export default class Card extends Vue {
+class Card extends Vue {
   @Prop() height
 }
+export default Card
 </script>
 
 <style src="./style.scss" lang="scss"></style>

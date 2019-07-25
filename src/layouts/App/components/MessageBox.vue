@@ -6,15 +6,15 @@
 
     <el-tabs class="fix-tabs">
       <el-tab-pane name="notify" :label="`通知${getMessageLength(messages.notify)}`">
-        <MessageBoxItem :content="messages.notify"/>
+        <MessageBoxItem :content="messages.notify"></MessageBoxItem>
       </el-tab-pane>
 
       <el-tab-pane name="messages" :label="`消息${getMessageLength(messages.messages)}`">
-        <MessageBoxItem :content="messages.messages"/>
+        <MessageBoxItem :content="messages.messages"></MessageBoxItem>
       </el-tab-pane>
 
       <el-tab-pane name="schedule" :label="`待办${getMessageLength(messages.schedule)}`">
-        <MessageBoxItem :content="messages.schedule"/>
+        <MessageBoxItem :content="messages.schedule"></MessageBoxItem>
       </el-tab-pane>
     </el-tabs>
   </el-popover>
@@ -30,13 +30,14 @@ import MessageBoxItem from './MessageBoxItem'
 @Component({
   components: { MessageBoxItem }
 })
-export default class MessageBox extends Vue {
+class MessageBox extends Vue {
   @Prop({ type: Object, required: true }) messages
 
   getMessageLength (arr) {
     return arr && arr.length > 0 ? `(${arr.length})` : ''
   }
 }
+export default MessageBox
 </script>
 
 <style lang="scss" scoped>

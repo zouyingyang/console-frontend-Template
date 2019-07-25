@@ -6,7 +6,7 @@
  * 转换数据结构，处理数据
  */
 
-export default class HandlerData {
+class HandlerData {
   /**
    * 将扁平的一维数组数据转为树形结构
    * @param data 数组对象
@@ -22,9 +22,6 @@ export default class HandlerData {
         let oo = json[len]
         if (ys[id] === oo[pid]) {
           ys.children = ys.children || []
-          // if (oo.isShow) {
-          //   ys.children.push(oo)
-          // }
           ys.children.push(oo)
           json.splice(len, 1)
         }
@@ -35,4 +32,27 @@ export default class HandlerData {
     }
     return treeList[0].children
   }
+
+  /**
+   * 将数据排序
+   * @param data
+   */
+  sortTree (data) {
+    return data.sort((a, b) => {
+      return b.sort - a.sort
+    })
+  }
+
+  /**
+   * 设置按钮级权限
+   * @param data
+   */
+  authority (data) {
+    return data.filter(i => {
+      return i.permission
+    }).map(j => {
+      return j.permission
+    })
+  }
 }
+export default HandlerData

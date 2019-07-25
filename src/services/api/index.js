@@ -6,10 +6,5 @@
  * 接口地址聚合
  */
 
-export * from './login'
-export * from './delivery-installation'
-export * from './mini-program'
-export * from './sale-data'
-export * from './settlement-coefficient'
-export * from './king-nurse'
+export * from './user'
 // export * from './common'

@@ -5,29 +5,26 @@
  * Time: 14:12
  * Desc: 返回码统一处理
  */
-import CURRENT_ENV_PATH from '../baseUrl'
 import { Message } from 'element-ui'
 
 export default [
   (response) => {
-    if (response.data.code !== undefined && response.data.code === '302') {
-      window.location = response.data.data + CURRENT_ENV_PATH.baseUrl + '/mtdssales-delivery/delivery/index/mtds2'
-      return
-    } else if (response.data.code !== undefined && response.data.code !== '200') {
-      let options = {}
-      options.dangerouslyUseHTMLString = true
-      options.message = response.data.message || response.data.msg || response.data.exception || response.data.errMsg
-      options.message = options.message.split(';').join('<br/>')
-      // console.log('options', options)
-      Message.error(options)
+    if (response.data && (!response.data.status || response.data.code !== '200')) {
+      let msg = response.data.message || response.data.msg || response.data.exception || response.data.errMsg || '服务器响应状态异常'
+      Message.error(msg)
     }
     return response
   },
-  error => {
-    Message({
-      message: `服务器异常，请稍后再试！(${error.response.data.error})`,
-      type: 'error',
-      duration: 3000
+  (error) => {
+    let message = error.message
+    if (!message) {
+      Message.error('服务器响应状态异常')
+    } else if (message && message.indexOf('timeout') !== -1) {
+      Message.error('服务相应超时')
+    }
+    // 隐藏所有loading
+    document.querySelectorAll('.el-loading-mask').forEach(list => {
+      list.style.display = 'none'
     })
     Promise.reject(error)
   }

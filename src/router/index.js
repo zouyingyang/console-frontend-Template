@@ -11,12 +11,12 @@ import Router from 'vue-router'
 import routes from './routes'
 import NProgress from 'nprogress'
 
-// import setUserInfoMenuList from './middleware/set-userinfo-menulist'
+import setUserInfoMenuList from './middleware/set-userinfo-menulist'
 // import protectLogin from './middleware/protect-login'
 import limitRouteFrom from './middleware/limit-route-from'
 import checkRouteAuth from './middleware/check-route-auth'
 import setWindowTitle from './middleware/set-window-title'
-import middleware from './middleware/middleware'
+import routeNavigation from './middleware/route-navigation'
 
 Vue.use(Router)
 
@@ -26,13 +26,12 @@ const router = new Router({
   routes
 })
 
-// router.beforeEach(setUserInfoMenuList)
+router.beforeEach(setUserInfoMenuList)
 router.beforeEach(setWindowTitle)
+router.beforeEach(routeNavigation)
 // router.beforeEach(protectLogin)
 router.beforeEach(limitRouteFrom)
 router.beforeEach(checkRouteAuth)
-router.beforeEach(middleware)
-
 router.beforeResolve((to, from, next) => {
   NProgress.start()
   next()

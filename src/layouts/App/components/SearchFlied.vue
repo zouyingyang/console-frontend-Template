@@ -1,6 +1,6 @@
 <template>
   <div>
-    <i class="el-icon-icon-search fix-icon" @click="handleSubmit"/>
+    <i class="el-icon-icon-search fix-icon" @click="handleSubmit"></i>
     <transition name="slide-fade">
       <el-autocomplete class="fix-autocomplete" ref="searchFiled"
         popper-class="my-autocomplete"
@@ -26,7 +26,7 @@ import { Prop } from 'vue-property-decorator'
 const _createFilter = (queryString, flied) => restaurant => restaurant[flied].toLowerCase().indexOf(queryString.toLowerCase()) > 0
 
 @Component
-export default class SearchFiled extends Vue {
+class SearchFiled extends Vue {
   isShow = false
   searchInput = ''
 
@@ -54,6 +54,7 @@ export default class SearchFiled extends Vue {
     }
   }
 }
+export default SearchFiled
 </script>
 
 <style lang="scss" scoped>

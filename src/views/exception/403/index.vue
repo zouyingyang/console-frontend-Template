@@ -13,11 +13,12 @@ import Vue from 'vue'
 import Component from 'vue-class-component'
 
 @Component
-export default class NotAuth extends Vue {
+class NotAuth extends Vue {
   onclick () {
     this.$router.push('/')
   }
 }
+export default NotAuth
 </script>
 
 <style lang="scss" scoped>

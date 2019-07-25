@@ -18,7 +18,7 @@ import Component from 'vue-class-component'
 import { Prop } from 'vue-property-decorator'
 
 @Component
-export default class NavBar extends Vue {
+class NavBar extends Vue {
   @Prop({ type: Boolean })collapse
 
   get helperClass () {
@@ -33,10 +33,11 @@ export default class NavBar extends Vue {
     this.$emit('onCollapse')
   }
 }
+export default NavBar
 </script>
 
 <style lang="scss">
-@import '~@nn-yy/css-flex/flex';
+@import '../../../assets/css/flex.scss';
 
 .nav-bar {
   @include flex( between, middle );
@@ -44,8 +45,6 @@ export default class NavBar extends Vue {
   padding: 0 20px;
   background-color: white;
   font-size: 18px;
-  -webkit-box-shadow: 0 1px 4px rgba(0,21,41,.08);
-  box-shadow: 0 1px 4px rgba(0,21,41,.08);
 
   &__helper {
     @include flex( center, middle );

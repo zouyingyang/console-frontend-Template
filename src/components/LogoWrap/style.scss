@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-@import '~@nn-yy/css-flex/flex';
+@import '../../assets/css/flex.scss';
 
 .logo {
   @include flex( start, middle );
@@ -14,7 +14,7 @@
   }
 
   &.is-dark {
-    background-color: #fc9153;
+    background-color: #f39d47;
     color: white;
   }
 

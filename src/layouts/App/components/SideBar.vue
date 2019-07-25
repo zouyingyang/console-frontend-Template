@@ -5,10 +5,8 @@
     :collapse-transition="true"
     router
     unique-opened>
-    <!--<LogoWrap type="dark" :logo="logo">{{ title }}</LogoWrap>-->
     <LogoWrap type="dark" :logo="logo"></LogoWrap>
     <template v-for="(item, index) in menusTree" v-if="item.isShow">
-
       <template v-if="item.children && item.children.length > 0">
         <el-submenu :index="item.route ?item.route :`${index}`" :key="index" v-if="item.isShow===1">
           <template :slot="'title'">
@@ -16,13 +14,10 @@
             <span :slot="'title'">{{ item.name }}</span>
           </template>
           <template v-for="(citem, cindex) in item.children">
-            <el-menu-item :index="citem.route ?citem.route :`${cindex}`" :key="cindex" v-if="citem.isShow===1 && !citem.target">
+            <el-menu-item :index="citem.route ?citem.route :`${cindex}`" :key="cindex" v-if="citem.isShow===1">
               <template v-if="citem.icon && citem.icon">
                 <i :class="['iconfont',item.icon]"></i>
               </template>
-              {{ citem.name }}
-            </el-menu-item>
-            <el-menu-item index="/dashboard/blank" :key="cindex" v-else-if="citem.isShow===1 && citem.target" @click="targetRouter(citem)">
               {{ citem.name }}
             </el-menu-item>
           </template>
@@ -50,7 +45,7 @@ import LogoWrap from '@/components/LogoWrap'
 @Component({
   components: { LogoWrap }
 })
-export default class SideBar extends Vue {
+class SideBar extends Vue {
   @Prop({ type: String }) logo
   @Prop({ type: String }) title
   @Prop({ type: String }) active
@@ -58,12 +53,10 @@ export default class SideBar extends Vue {
   @Prop({ type: Array }) menusTree
 
   created () {
-  }
-  targetRouter (citem) {
-    window.open(citem.href)
-    return false
+    console.log('this.menusTree', JSON.parse(JSON.stringify(this.menusTree)))
   }
 }
+export default SideBar
 </script>
 
 <style lang="scss" scoped>
@@ -88,7 +81,7 @@ export default class SideBar extends Vue {
       font-size: 13px!important;
 
       &:hover {
-        color: #fc9153;
+        color: #f39d47;
         background-color: unset;
       }
       i {

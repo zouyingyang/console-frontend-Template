@@ -8,9 +8,10 @@
 import { Vue, Component, Prop } from 'vue-property-decorator'
 
 @Component
-export default class NonData extends Vue {
+class NonData extends Vue {
   @Prop({ type: String, default: '暂无数据' }) tips
 }
+export default NonData
 </script>
 
 <style src="./style.scss" lang="scss" scoped></style>

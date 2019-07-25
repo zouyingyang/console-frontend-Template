@@ -13,11 +13,12 @@ import Vue from 'vue'
 import Component from 'vue-class-component'
 
 @Component
-export default class NotFind extends Vue {
+class NotFind extends Vue {
   onclick () {
     this.$router.push('/')
   }
 }
+export default NotFind
 </script>
 
 <style lang="scss" scoped>

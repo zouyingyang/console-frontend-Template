@@ -3,16 +3,12 @@
 @import "~@nn-yy/css-flex/flex";
 
 .card {
-  .el-card__body{
-    width: 100%;
-  }
   &__head {
     @include flex( between, middle );
   }
 
   &__content {
     padding: .5em 0;
-    overflow-y: scroll;
   }
 
   &__foot {

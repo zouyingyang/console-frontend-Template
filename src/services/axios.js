@@ -1,12 +1,12 @@
 import axios from 'axios'
 // import requestWithToken from './interceptors/requestWithToken'
-// import { handleRequestCancel, handleResponseCancel } from './interceptors/cancel-the-same-request'
+import { handleRequestCancel, handleResponseCancel } from './interceptors/cancel-the-same-request'
 import retryWhenTimeout from './interceptors/retry-when-timeout'
-// import responseHandleCode from './interceptors/response-handle-code'
-import responseHandleNewsso from './interceptors/response-handle-newsso'
+import responseHandleCode from './interceptors/response-handle-code'
 // 环境地址
 import CURRENT_ENV_PATH from './baseUrl'
 import { getCookie, getQueryString } from '../utils/cookieExpand'
+// oss token设置
 const getOauth2AccessToken = () => {
   return getQueryString('Oauth2-AccessToken') ? getQueryString('Oauth2-AccessToken') : getCookie('Oauth2-AccessToken')
 }
@@ -26,16 +26,15 @@ if (getOauth2AccessToken()) {
 
 // add a request interceptor
 // axios.interceptors.request.use(...requestWithToken)
-// axios.interceptors.request.use(...handleRequestCancel)
+axios.interceptors.request.use(...handleRequestCancel)
 axios.interceptors.request.use(
   config => config,
   error => Promise.reject(error)
 )
 
 // add a response interceptor
-// axios.interceptors.response.use(...responseHandleCode)
-axios.interceptors.response.use(...responseHandleNewsso)
-// axios.interceptors.response.use(...handleResponseCancel)
+axios.interceptors.response.use(...responseHandleCode)
+axios.interceptors.response.use(...handleResponseCancel)
 axios.interceptors.response.use(...retryWhenTimeout)
 axios.interceptors.response.use(
   response => response,

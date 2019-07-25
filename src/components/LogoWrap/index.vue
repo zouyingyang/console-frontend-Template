@@ -17,12 +17,13 @@ import Component from 'vue-class-component'
 import { Prop } from 'vue-property-decorator'
 
 @Component
-export default class LogoWrap extends Vue {
+class LogoWrap extends Vue {
   @Prop({ type: String, default: '' }) type
   @Prop({ type: String, default: '' }) size
   @Prop({ required: true, type: String }) logo
   @Prop({ default: false, type: Boolean }) collapse
 }
+export default LogoWrap
 </script>
 
 <style src="./style.scss" lang="scss" scoped></style>

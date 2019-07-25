@@ -10,15 +10,6 @@ import { get } from './utils'
 
 export default (to, from, next) => {
   let target
-
-  if (to.name && to.name !== '403') {
-    if (!window.sessionStorage.getItem('targetTo')) {
-      window.sessionStorage.setItem('targetTo', JSON.stringify({
-        name: to.name,
-        query: to.query
-      }))
-    }
-  }
   if (get(['meta', 'title'], to)) {
     window.document.title = to.meta.title
   }

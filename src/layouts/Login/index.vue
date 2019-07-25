@@ -96,7 +96,7 @@ const phoneRegExp = /^1(3|4|5|6|7|8|9)\d{9}$/
   components: { LogoWrap },
   directives: { countDown }
 })
-export default class Login extends Vue {
+class Login extends Vue {
   logo = require('@/assets/images/logo.png')
   autoLogin = false
   isLogin = false
@@ -169,6 +169,7 @@ export default class Login extends Vue {
     })
   }
 }
+export default Login
 </script>
 
 <style lang="scss" scoped>
