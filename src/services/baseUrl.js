@@ -10,12 +10,12 @@ console.info('当前环境:', process.env.NODE_ENV)
 switch (process.env.NODE_ENV) {
   case 'development':
     CURRENT_ENV_PATH = {
-      baseUrl: 'https://apigatewayuat.oppein.com'
+      baseUrl: 'https://aaauat.bbb.com'
     }
     break
   case 'production':
     CURRENT_ENV_PATH = {
-      baseUrl: 'https://apigateway.oppein.com'
+      baseUrl: 'https://aaa.bbb.com'
     }
     break
 }
