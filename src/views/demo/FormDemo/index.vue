@@ -31,33 +31,33 @@
           </el-form>
           </el-col>
           <el-col :span="24" v-show="seniorSearchFlag" class="op-margin-top-10">
-            <el-form :model="params" :inline="true">
+            <el-form :model="form" :inline="true">
               <el-row>
                 <el-col :span="24">
                   <el-row>
                     <el-col :span="8">
                       <el-form-item label="客户是否齐套" size="mini">
-                        <el-checkbox-group class="op-right">
-                          <el-checkbox  label="2" name="serviceNoComplete">已齐套</el-checkbox>
-                          <el-checkbox  label="1" name="serviceNoComplete">部分齐套</el-checkbox>
-                          <el-checkbox  label="0" name="serviceNoComplete">未收货</el-checkbox>
+                        <el-checkbox-group class="op-right" v-model="form.checkbox1">
+                          <el-checkbox label="2" name="serviceNoComplete">已齐套</el-checkbox>
+                          <el-checkbox label="1" name="serviceNoComplete">部分齐套</el-checkbox>
+                          <el-checkbox label="0" name="serviceNoComplete">未收货</el-checkbox>
                         </el-checkbox-group>
                       </el-form-item>
                     </el-col>
                     <el-col :span="8">
                       <el-form-item label="订单是否齐套" size="mini">
-                        <el-checkbox-group class="op-right">
-                          <el-checkbox  label="2" name="isComplete">已齐套</el-checkbox>
-                          <el-checkbox  label="1" name="isComplete">部分齐套</el-checkbox>
-                          <el-checkbox  label="0" name="isComplete">未收货</el-checkbox>
+                        <el-checkbox-group class="op-right" v-model="form.checkbox2">
+                          <el-checkbox label="2" name="isComplete">已齐套</el-checkbox>
+                          <el-checkbox label="1" name="isComplete">部分齐套</el-checkbox>
+                          <el-checkbox label="0" name="isComplete">未收货</el-checkbox>
                         </el-checkbox-group>
                       </el-form-item>
                     </el-col>
                     <el-col :span="8">
                       <el-form-item label="验收结果" size="mini">
-                        <el-checkbox-group class="op-right">
-                          <el-checkbox  label="1" name="isPass">通过</el-checkbox>
-                          <el-checkbox  label="0" name="isPass">不通过</el-checkbox>
+                        <el-checkbox-group class="op-right" v-model="form.checkbox3">
+                          <el-checkbox label="1" name="isPass">通过</el-checkbox>
+                          <el-checkbox label="0" name="isPass">不通过</el-checkbox>
                         </el-checkbox-group>
                       </el-form-item>
                     </el-col>
@@ -197,6 +197,9 @@ class FormDemo extends Vue {
       region: '',
       date1: '',
       date2: '',
+      checkbox1: [],
+      checkbox2: [],
+      checkbox3: [],
       delivery: false,
       type: [],
       resource: '',

@@ -2,7 +2,7 @@ module.exports = {
   publicPath: '/',
   outputDir: 'dist',
   devServer: {
-    port: 8086,
+    port: 8080,
     https: false,
     hotOnly: true,
     disableHostCheck: true,

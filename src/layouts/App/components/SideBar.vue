@@ -53,7 +53,6 @@ class SideBar extends Vue {
   @Prop({ type: Array }) menusTree
 
   created () {
-    console.log('this.menusTree', JSON.parse(JSON.stringify(this.menusTree)))
   }
 }
 export default SideBar
