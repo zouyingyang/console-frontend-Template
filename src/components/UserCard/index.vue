@@ -10,6 +10,7 @@ import Vue from 'vue'
 import Component from 'vue-class-component'
 import { Prop } from 'vue-property-decorator'
 
+// @Component 装饰器表明此 class 是一个 Vue 组件
 @Component
 class UserCard extends Vue {
   @Prop({ type: String, required: true }) userName

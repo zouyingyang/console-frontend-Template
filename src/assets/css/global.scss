@@ -19,50 +19,6 @@ body, #app{
   text-align: center;
   font-size: 16px;
 }
-
-/*基础样式*/
-.op-left{
-  float: left;
-}
-.op-right{
-  float: right;
-}
-.op-clear:after {
-  content: '';
-  display: block;
-  clear: both;
-  height: 0;
-  overflow: hidden;
-  visibility: hidden;
-}
-.op-clear {
-  zoom: 1;
-}
-.op-no-wrap{
-  white-space: nowrap;
-  text-overflow :ellipsis;
-  overflow: hidden;
-}
-.op-text-right{
-  text-align: right;
-}
-.op-text-left{
-  text-align: left;
-}
-.op-text-center{
-  text-align: center;
-}
-.op-margin-top-10{
-  margin-top: 10px;
-}
-.op-nowrap{
-  white-space: nowrap;
-  text-overflow:ellipsis;
-  overflow:hidden;
-}
-.op-pointer{
-  cursor: pointer;
-}
 /*字体颜色*/
 .font-default-color{
   color: #f08519;
@@ -73,65 +29,6 @@ body, #app{
 
 *:focus{
   outline: none !important;
-}
-.op-inline-block{
-  display: inline-block;
-}
-.op-vertical-center{
-  vertical-align:center;
-}
-.op-vertical-top{
-  vertical-align:top;
-}
-.op-point{
-  cursor: pointer;
-}
-.op-relative{
-  position: relative;
-}
-.op-absolute{
-  position: absolute;
-}
-//去掉表格hover高亮
-.el-table--enable-row-hover .el-table__body tr:hover>td, .el-table__body tr.hover-row >td{
-  background-color: transparent !important;
-}
-.loading-wrap {
-  min-height: 300px;
-}
-.el-table thead{
-  color: #444;
-}
-.el-table,
-.el-checkbox,
-.el-breadcrumb__item:last-child .el-breadcrumb__inner,
-.el-breadcrumb__item:last-child .el-breadcrumb__inner:hover,
-.el-breadcrumb__item:last-child .el-breadcrumb__inner a,
-.el-breadcrumb__item:last-child .el-breadcrumb__inner a:hover,
-.el-menu-item i{
-  color: #555;
-}
-.el-main{
-  padding: 10px 20px 10px 20px;
-}
-.el-form-item__content{
-  line-height: normal;
-}
-.el-message__content{
-  line-height: 18px;
-}
-//调整表格表行高
-.reuse-table-cell{
-  padding: 0 0!important;
-}
-.receive-list-cell{
-  padding: 6px 0!important;
-}
-body .el-table th.gutter{
-  display: table-cell!important;
-}
-body .el-table colgroup.gutter {
-  display: table-cell !important;
 }
 
 

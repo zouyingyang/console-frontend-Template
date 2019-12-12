@@ -1,20 +1,114 @@
 # console-frontend-Template
 
 ## 项目背景
-> ***
+...
 
 ## 项目目标
-> ***
+...
+### 主要目标如下：
+...
 
 ## 项目需求
-> ***
+...
 
 ## 开发工具 IDE
 
-使用 WebStorm 作为开发工具，[下载地址](https://www.jetbrains.com/webstorm/)
+使用 Visual Studio Code 作为开发工具，[下载地址](https://www.jetbrains.com/webstorm/)
 
-> WebStorm 集成众多有用的功能，不用费力去配置如 Sublime Text 这样的编辑器，虽然 WebStorm 略有耗内存，不要心疼！多余的留着不用
-就是浪费。
+> Visual Studio Code 文件目录管理强大、自定义配置自由、集成Git、智能提示、自带强大的调试功能。总体上VSCODE对于前端来说还是非常友好的！如丝般润滑! 此项目开发者建议使用以下插件开发！
+
+### 插件
+| 插件名称 | 备注 |
+| - | - |
+| Vetur | Vue 语法高亮显示, 语法错误检查, 代码自动补全 |
+| HTML Snippets | 代码自动填充 |
+| Auto Close Tag | 自动添加HTML / XML关闭标签 |
+| HTML CSS Support | HTML 中 CSS Class 智能提示 |
+| CSS Peek | 能够查看CSS ID和类的字符串作为HTML文件中相应的CSS定义（必备） |
+| Color Highlight| 显示 CSS 代码中的颜色 |
+| JavaScript (ES6) code snippets | es6代码片段 |
+| Document This | 添加注释块 |
+| Beautify | 格式化代码 |
+| Prettier | 代码格式统一 |
+| StandardJS | Standard风格排版插件（可以根据项目使用的Eslint风格更换） |
+| Path Intellisense | 路径自动补全 | 
+| IntelliJ IDEA Keybindings | 习惯IDEA快捷键的同学可以使用此插件 |
+| ESLint | EsLint可以帮助我们检查Javascript编程时的语法错误。|
+| GitLens — Git supercharged | git源代码管理插件 |
+| Chinese | 中文简体语言包 |
+| file-icons | 设置编辑器文件夹ICON 看起来顺眼比什么都重要 |
+### 自定义设置(Code - 首选项 - 设置 - 右上角代码模式)
+```
+{
+  "workbench.iconTheme": "file-icons",
+  "editor.fontSize": 13,
+  // vscode默认启用了根据文件类型自动设置tabsize的选项
+  "editor.detectIndentation": true,
+  // 重新设定tabsize
+  "editor.tabSize": 2,
+  // 每次保存的时候自动格式化 
+  // "editor.formatOnSave": true,
+  // 每次保存的时候将代码按eslint格式进行修复
+  "eslint.autoFixOnSave": true,
+  // 开启对.vue文件中错误的检查
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    {
+      "language": "vue",
+      "autoFix": true
+    },
+    {
+      "language": "html",
+      "autoFix": true
+    },
+  ],
+  // 是否在每行结尾添加分号 
+  "prettier.semi": false,
+  // 如果为true将使用单引号 
+  "prettier.singleQuote": true,
+  // 让函数(名)和后面的括号之间加个空格
+  "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+  // 这个按用户自身习惯选择 
+  // "vetur.format.defaultFormatter.html": "js-beautify-html",
+  // 让vue中的js按编辑器自带的ts格式进行格式化 
+  // "vetur.format.defaultFormatter.js": "vscode-typescript",
+  "vetur.format.defaultFormatter.js": "prettier",
+  "vetur.format.defaultFormatterOptions": {
+    "js-beautify-html": {
+      // 对属性进行换行。
+      // - auto: 仅在超出行长度时才对属性进行换行。
+      // - force: 对除第一个属性外的其他每个属性进行换行。
+      // - force-aligned: 对除第一个属性外的其他每个属性进行换行，并保持对齐。
+      // - force-expand-multiline: 对每个属性进行换行。
+      // - aligned-multiple: 当超出折行长度时，将属性进行垂直对齐。
+      "wrap_attributes": "auto"
+    }
+  },
+  "eslint.packageManager": "yarn",
+  "docthis.enableHungarianNotationEvaluation": true,
+  "terminal.integrated.rendererType": "dom",
+  // 编辑器菜单在右边显示
+  "workbench.sideBar.location": "right",
+  "[javascript]": {
+    // 两个选择器中是否换行
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  }
+}
+```
+
 
 ## 依赖安装
 
