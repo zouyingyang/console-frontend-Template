@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+@import "~@nn-yy/css-flex/flex";
+
+.card {
+  &__head {
+    @include flex( between, middle );
+  }
+
+  &__content {
+    padding: .5em 0;
+  }
+
+  &__foot {
+    .el-card__body{
+      padding: 10px 20px;
+    }
+  }
+  .el-card{
+    margin-bottom: 10px;
+  }
+}
