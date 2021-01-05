@@ -17,7 +17,7 @@
     "analyze": "vue-cli-service build"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "element-china-area-data": "^4.1.1",
     "element-ui": "^2.13.0",
     "lodash": "^4.17.11",
